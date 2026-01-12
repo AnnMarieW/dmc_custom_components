@@ -41,6 +41,12 @@ module.exports = function (env, argv) {
             amd: '@mantine/hooks',
             root: 'MantineHooks', // This maps to window.MantineHooks
         },
+        '@mantine/dates': {
+            commonjs: '@mantine/dates',
+            commonjs2: '@mantine/dates',
+            amd: '@mantine/dates',
+            root: 'MantineDates', // This maps to window.MantineDates
+        },
     };
 
     return {
