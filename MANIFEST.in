@@ -1,0 +1,2 @@
+recursive-include dmc_custom_components/** *.js *.css *.json *.html
+prune tests
