@@ -4,8 +4,7 @@
 # Build artifacts
 dmc_custom_components/*
 !dmc_custom_components/__init__.py
-!dash_ag_grid/_version.py
-!dash_ag_grid/themes.py
+
 R/
 deps/
 man/
