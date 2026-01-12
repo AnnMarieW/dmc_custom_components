@@ -23,12 +23,15 @@ This template provides the standard structure and build pipeline for creating Da
 
 Using mismatched Mantine versions may cause runtime errors.
 
-
-
 ## Why a Wrapper Is Used
 
 Dash Mantine Components ≥ 2.5.0 exposes Mantine Core, Mantine Hooks, and Mantine Dates on the global `window` object.
-A wrapper is used to ensure these APIs are fully loaded before a custom component is rendered.
+A wrapper is used to ensure these APIs are fully loaded before a custom component is rendered.  It also makes it so that
+your custom component does not need it's own `MantineProvider`.  
+
+You can find the wrapper in the [utils folder](https://github.com/AnnMarieW/dmc_custom_components/blob/main/src/ts/utils/withMantine.tsx)
+
+See the sample dash app [usage.py](https://github.com/AnnMarieW/dmc_custom_components/blob/main/usage.py)
 
 ## Updating webpack
 
