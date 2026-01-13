@@ -4,7 +4,7 @@
 
 This project shows how to create custom Dash components that use Mantine components or Mantine hooks as dependencies, such as custom Mantine `Select` components.
 
-It includes two example components based on Mantine’s `Select` examples from the [Combobox examples page](https://mantine.dev/combobox/?e=BasicSelect).
+It includes three example components based on Mantine’s `Select` examples from the [Combobox examples page](https://mantine.dev/combobox/?e=BasicSelect).
 
 ## Project Setup
 

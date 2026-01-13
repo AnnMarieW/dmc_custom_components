@@ -12,8 +12,15 @@ app.layout = dmc.MantineProvider(
             title="Hello!",
             color="violet",
         ),
-        dmc_custom.ManySelect(),
-        dmc_custom.SelectCreatable()
+
+        dmc.Text("Limit max number of options that can be selected", mt=24),
+        dmc_custom.MaxSelectedItems(),
+
+        dmc.Text("Select with option to create new options", mt=24),
+        dmc_custom.SelectCreatable(),
+
+        dmc.Text("Limit max number of values that can be displayed", mt=24),
+        dmc_custom.MaxDisplayedItems()
     ]
 )
 
