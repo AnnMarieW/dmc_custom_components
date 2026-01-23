@@ -1,65 +1,99 @@
-# Custom Components for Dash Mantine Components.
+## Custom Components for Dash Mantine Components
 
-## Introduction
+### Introduction
 
-This project shows how to create custom Dash components that use Mantine components or Mantine hooks as dependencies, such as custom Mantine `Select` components.
+This repository demonstrates how to create custom Dash components that use Mantine components or hooks, such as
+custom `Select` components. It includes examples based on Mantine’s [Combobox examples page](https://mantine.dev/combobox/?e=BasicSelect).
 
-It includes three example components based on Mantine’s `Select` examples from the [Combobox examples page](https://mantine.dev/combobox/?e=BasicSelect).
+These examples are meant to show how to use `MantineHooks`, `MantineCore`, and `MantineDates` to build components
+that work with your dash app when using dash-mantine-components.
 
-## Project Setup
 
-The project was started using Plotly's [Dash Typescript Component Template](https://github.com/plotly/dash-typescript-component-template).
-This template provides the standard structure and build pipeline for creating Dash components with React and TypeScript, along with the generated Python API.
+### Project Setup
 
-## Version Requirements
+To create your own custom component project, start by following the instructions in Plotly’s [Dash TypeScript Component Template](https://github.com/plotly/dash-typescript-component-template). 
+This template sets up everything you need to build Dash components with React and TypeScript.
 
-* This project must be built using the same Mantine version as the `dash-mantine-components` version in the Dash app.
-* Requires dash-mantine-components ≥ 2.5.0
-* Supported Mantine packages:
-  * Mantine Core
-  * Mantine Hooks
-  * Mantine Dates
-* Other Mantine packages are not supported
+The template will generate:
 
-Using mismatched Mantine versions may cause runtime errors.
+* A standard project structure for Dash components
+* A React + TypeScript development environment
+* A build pipeline that produces the JavaScript bundles and Python package
+* A generated Python API for your custom components
 
-## Why a Wrapper Is Used
+This repository was created from that template and then extended to support Mantine-based components.
 
-Dash Mantine Components ≥ 2.5.0 exposes Mantine Core, Mantine Hooks, and Mantine Dates on the global `window` object.
-A wrapper is used to ensure these APIs are fully loaded before a custom component is rendered.  It also makes it so that
-your custom component does not need it's own `MantineProvider`.  
+### Using the Mantine wrapper
 
-You can find the wrapper in the [utils folder](https://github.com/AnnMarieW/dmc_custom_components/blob/main/src/ts/utils/withMantine.tsx)
+Dash Mantine Components (≥ 2.5.0) exposes `MantineCore`, `MantineHooks`, and `MantineDates` on the global `window`
+object. To safely use these APIs in custom components, this project includes a small wrapper that:
 
-See the sample dash app [usage.py](https://github.com/AnnMarieW/dmc_custom_components/blob/main/usage.py)
+* Waits until the Mantine APIs are available
+* Ensures your component uses the same Mantine context and theme as the Dash app
+* Avoids the need to add a separate `MantineProvider` inside your component
 
-## Updating webpack
+You can copy [this wrapper](https://github.com/AnnMarieW/dmc_custom_components/blob/main/src/ts/utils/withMantine.tsx) directly into your own project.
 
-To utilize in custom components, you need to place this in your `webpack.config.js` `externals`:
+Once copied, wrap your custom React components with it before exporting them. This allows your components to access 
+Mantine hooks and utilities in a safe and consistent way.
 
+See [usage.py](https://github.com/AnnMarieW/dmc_custom_components/blob/main/usage.py) for an example of how these wrapped components are used in a Dash app.
+
+### Version Requirements
+
+Mantine versions for your custom component project are defined in your `package.json`. Make sure they match the Mantine version used by the `dash-mantine-components` version in your Dash app.
+
+Requires `dash-mantine-components` ≥ 2.5.0. See the [DMC Migration Guide](https://www.dash-mantine-components.com/migration) for version mappings.
+
+Mismatched Mantine versions may cause runtime errors.
+
+### Updating Webpack
+
+To use Mantine in custom components, add these `externals` in your `webpack.config.js`:
+
+```javascript
+'@mantine/core': {
+    commonjs: '@mantine/core',
+    commonjs2: '@mantine/core',
+    amd: '@mantine/core',
+    root: 'MantineCore',
+},
+'@mantine/hooks': {
+    commonjs: '@mantine/hooks',
+    commonjs2: '@mantine/hooks',
+    amd: '@mantine/hooks',
+    root: 'MantineHooks',
+},
+'@mantine/dates': {
+    commonjs: '@mantine/dates',
+    commonjs2: '@mantine/dates',
+    amd: '@mantine/dates',
+    root: 'MantineDates',
+},
 ```
-         '@mantine/core': {
-            commonjs: '@mantine/core',
-            commonjs2: '@mantine/core',
-            amd: '@mantine/core',
-            root: 'MantineCore', // This maps to window.MantineCore
-        },
-        '@mantine/hooks': {
-            commonjs: '@mantine/hooks',
-            commonjs2: '@mantine/hooks',
-            amd: '@mantine/hooks',
-            root: 'MantineHooks', // This maps to window.MantineHooks
-        },
-        '@mantine/dates': {
-            commonjs: '@mantine/dates',
-            commonjs2: '@mantine/dates',
-            amd: '@mantine/dates',
-            root: 'MantineDates', // This maps to window.MantineDates
-        },
-```
+### Getting Help
+
+If you need help while building custom components, here are some options:
+
+* Open an issue in this repository
+  Use GitHub issues to report bugs or ask questions about these examples.
+
+* Dash Mantine Components Discord
+  Ask questions or discuss custom components with the [DMC Discord community](https://discord.gg/KuHmfQ9rXq)
+
+* Plotly Community Forum
+  For broader Dash questions or to share examples use the [Dash Community Forum](https://community.plotly.com/)
+
+When asking for help, please include your `dash-mantine-components` version, the Mantine version from your `package.json`, and a minimal example if possible.
+
+
 --------------------
 
-The following is automatically generated by the Dash Typescript Template:
+### Everything below is automatically generated by the Dash Typescript Template:
+
+-------------
+
+
 ## Install
 
 ```shell

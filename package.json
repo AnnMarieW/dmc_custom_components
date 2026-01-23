@@ -33,9 +33,9 @@
     "react-dom": "16- 19"
   },
   "dependencies": {
-        "@mantine/core": "8.3.10",
-        "@mantine/hooks": "8.3.10",
-        "@mantine/dates": "8.3.10"
+        "@mantine/core": "8.3.13",
+        "@mantine/hooks": "8.3.13",
+        "@mantine/dates": "8.3.13"
     },
   "author": "AnnMarieW <dash-mantine-components@gmail.com>",
   "license": "MIT"
