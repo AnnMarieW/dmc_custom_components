@@ -2,7 +2,6 @@
 https://mantine.dev/combobox/?e=SelectCreatable
 */
 
-
 import { withMantine } from "../utils/withMantine";
 import React, { useState } from "react";
 import { DashComponentProps } from "../props";
