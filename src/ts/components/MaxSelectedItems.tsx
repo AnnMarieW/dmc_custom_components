@@ -1,3 +1,8 @@
+/**
+https://mantine.dev/combobox/?e=MaxSelectedItems
+*/
+
+
 import { withMantine } from "../utils/withMantine";
 import React, { useState } from "react";
 import { DashComponentProps } from "../props";
