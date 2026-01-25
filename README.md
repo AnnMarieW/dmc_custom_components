@@ -3,9 +3,10 @@
 ### Introduction
 
 This repository shows how to build custom Dash components using Mantine components and hooks. It includes examples of
-custom inputs, such as `Select`.
+custom inputs that use `Combobox`, such as `Select` and `MultiSelect`.
 
-The components are based on examples in Mantine’s [Combobox documentation](https://mantine.dev/combobox/?e=BasicSelect). 
+The components are based on examples in Mantine’s [Combobox examples](https://mantine.dev/combobox/?e=BasicSelect). 
+See also Mantine's  [Combobox documentation](https://mantine.dev/core/combobox/)
 
 Requires `dash-mantine-components>=2.5.0`
 
@@ -25,7 +26,7 @@ This repository was created from that template and then extended to support Mant
 
 ### Using the Mantine wrapper
 
-Dash Mantine Components (≥ 2.5.0) exposes `MantineCore`, `MantineHooks`, and `MantineDates` on the global `window`
+Dash Mantine Components (≥ 2.5.0) exposes `MantineCore` and  `MantineHooks` on the global `window`
 object. To safely use these APIs in custom components, this project includes a small wrapper that:
 
 * Waits until the Mantine APIs are available
@@ -64,16 +65,11 @@ To use Mantine in custom components, add these `externals` in your `webpack.conf
     amd: '@mantine/hooks',
     root: 'MantineHooks',
 },
-'@mantine/dates': {
-    commonjs: '@mantine/dates',
-    commonjs2: '@mantine/dates',
-    amd: '@mantine/dates',
-    root: 'MantineDates',
-},
+
 ```
 ### Getting Help
 
-If you need help while building custom components, here are some options:
+If you need help building custom components, here are some options:
 
 * Use [GitHub issues](https://github.com/AnnMarieW/dmc_custom_components/issues) to report bugs or ask questions about these examples.
 
